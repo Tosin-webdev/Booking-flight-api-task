@@ -35,7 +35,7 @@ exports.create = (req, res) => {
 exports.update = (req, res) => {
   const flight = flights.find((c) => c.id === parseInt(req.params.id));
   if (!flight) {
-    return res.status(40).send('The flight with the given ID was not found');
+    return res.status(400).send('The flight with the given ID was not found');
   }
   flight.title = req.body.title;
   res.send(flight);
