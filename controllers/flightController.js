@@ -38,6 +38,8 @@ exports.update = (req, res) => {
     return res.status(400).send('The flight with the given ID was not found');
   }
   flight.title = req.body.title;
+  flight.time = new Date().toLocaleTimeString();
+  flight.date = new Date().toLocaleDateString();
   res.send(flight);
 };
 
